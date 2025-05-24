@@ -4,7 +4,7 @@
 
 -- JUST FOR FUN --
 
-Currently just a small demonstration for applying with Leptos a rotating Text. 
+Currently just a small demonstration for applying with Leptos a rotating Text.
 
 Current implementation level 1% ;-)
 

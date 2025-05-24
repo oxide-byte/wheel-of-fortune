@@ -1,31 +1,36 @@
 use leptos::prelude::*;
-use leptos_use::{use_interval_fn};
 use leptos_use::utils::Pausable;
+use leptos_use::{use_raf_fn};
 
 #[component]
 pub fn WheelOfFortune() -> impl IntoView {
     let (counter, set_counter) = signal(0);
-    let (rotation, set_rotation) = signal(format!("{}deg", counter.get()));
+    let (rotation1, set_rotation1) = signal(format!("{}deg", counter.get()));
+    let (rotation2, set_rotation2) = signal(format!("{}deg", counter.get() + 90));
 
-    let Pausable {
-        pause,
-        resume,
-        is_active,
-    } = use_interval_fn(
-        move || {
+    let Pausable { pause:_, resume:_, is_active:_ } = use_raf_fn(move |_| {
             let c = counter.get() + 1;
             set_counter.set(c);
-            set_rotation.set(format!("{}deg", c));
+            set_rotation1.set(format!("{}deg", c));
+            set_rotation2.set(format!("{}deg", c + 90));
         },
-        1,
     );
-    
+
     view! {
-        <div class="w-28 h-28 p-6 bg-green-500 text-center font-bold 
-                text-white text-center font-bold text-white">
-                <div style:rotate=move || rotation>
-                {rotation}
-                </div>
+        <div class="relative w-105 h-105 bg-gray-100">
+
+          <div class="absolute top-0 left-0 p-50 -ml-48">
+            <div class="w-100 h-20 text-right">
+                <div style:rotate=move || rotation1> {rotation1} </div>
+            </div>
+          </div>
+                
+          <div class="absolute top-0 left-0 p-50 -ml-48">
+            <div class="w-100 h-20 text-right">
+                <div style:rotate=move || rotation2> {rotation2} </div>
+            </div>
+          </div>
+
         </div>
     }
 }
