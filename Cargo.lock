@@ -2029,6 +2029,7 @@ version = "0.1.0"
 dependencies = [
  "leptos",
  "leptos-use",
+ "reactive_stores",
 ]
 
 [[package]]

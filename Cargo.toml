@@ -6,3 +6,4 @@ edition = "2024"
 [dependencies]
 leptos = { version = "0.8.2", features = ["csr"] }
 leptos-use = { version = "0.16.0-beta2", features = ["use_interval_fn", "use_raf_fn"] }
+reactive_stores = { version = "0.2.2" }

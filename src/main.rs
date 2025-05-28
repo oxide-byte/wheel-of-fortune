@@ -1,9 +1,8 @@
-mod wheel_of_fortune;
+mod components;
 
+use crate::components::App;
 use leptos::prelude::*;
-use wheel_of_fortune::WheelOfFortune;
+
 fn main() {
-    mount_to_body(|| view! {
-        <WheelOfFortune/>
-    })
+    mount_to_body(|| view! {<App/>})
 }
