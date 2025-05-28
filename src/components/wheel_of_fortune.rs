@@ -3,6 +3,7 @@ use leptos::prelude::*;
 use leptos_use::utils::Pausable;
 use leptos_use::use_interval_fn;
 use reactive_stores::Store;
+use thaw::SpinButton;
 
 #[derive(Clone, Default)]
 struct WheelPart {
@@ -13,6 +14,8 @@ struct WheelPart {
 #[component]
 pub fn WheelOfFortune() -> impl IntoView {
     let (counter, set_counter) = signal(0);
+    let (interval, set_interval) = signal(100_u64);
+    let speed = RwSignal::<usize>::new(5);
     let state = expect_context::<Store<GlobalState>>();
     let (parts, set_parts) = signal(Vec::<WheelPart>::new());
 
@@ -22,7 +25,7 @@ pub fn WheelOfFortune() -> impl IntoView {
         is_active: _,
     } = use_interval_fn(
         move || {
-            let c = counter.get() + 1;
+            let c = counter.get() + speed.get();
             set_counter.set(c);
 
             let state = state.name_list().get();
@@ -41,7 +44,7 @@ pub fn WheelOfFortune() -> impl IntoView {
                 set_parts.set(v);
             }
         },
-        90,
+        interval,
     );
 
     view! {
@@ -56,6 +59,11 @@ pub fn WheelOfFortune() -> impl IntoView {
                   </div>
                 }).collect_view()
             }}
+        </div>
+        <div class="p-2">
+            <div><h1 class="text-4xl font-extrabold">SPEED</h1></div>
+            <div><SpinButton<u64> value=(interval, set_interval) step_page=10 min=0 max=1000/></div>
+            <div><SpinButton<usize> value=speed step_page=1 min=0 max=100/></div>
         </div>
     }
 }
