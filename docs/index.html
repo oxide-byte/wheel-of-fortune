@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/wheel-of-fortune/tailwind-14e1785f4e236a6b.css" integrity="sha384-UIqcEEbv8Y5bYDSlk0jModHQjCh9ei5imZj2I4oKJJFEb0hzP3Rn2HZN+zNH0G/Z"/>
+<head>
+    <base href="/wheel-of-fortune/">
+    <title>Berlin Rust Hack&Learn Wheel of Fortune</title>
+<link rel="modulepreload" href="/wheel-of-fortune/wheel_of_fortune-42e54a8c1e74f294.js" crossorigin="anonymous" integrity="sha384-TxLzatxjZWSjUUKAUHwjs8YXSzUEQAqluOqXjVHzJcSeVfDSlGwslljMM/jyh9LY"><link rel="preload" href="/wheel-of-fortune/wheel_of_fortune-42e54a8c1e74f294_bg.wasm" crossorigin="anonymous" integrity="sha384-nHqc0nPwe8+z1qc7ufZbVkA4ntncFLXfLQhMaUQj8x3jSUh/TJTJyzQrF23cDu67" as="fetch" type="application/wasm"></head>
+<body>
+<script type="module">
+import init, * as bindings from '/wheel-of-fortune/wheel_of_fortune-42e54a8c1e74f294.js';
+const wasm = await init({ module_or_path: '/wheel-of-fortune/wheel_of_fortune-42e54a8c1e74f294_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+</html>
