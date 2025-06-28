@@ -110,17 +110,24 @@ pub fn WheelOfFortune() -> impl IntoView {
         
             {move || {
                 parts.get().into_iter()
-                .map(|x| view!{
-                  <div class="absolute top-0 left-0 p-50 -ml-48">
-                    <div class="w-100 h-20 text-right">
+                .map(|x| {
+                    let slice_angle = 360.0 / parts.get().len() as f64;
+                    let text_angle = x.angle as f64 + slice_angle / 2.0; // Center of the slice
+                    let text_radius = 150.0; // Distance from center for text
+                    let text_rad = (text_angle - 90.0) * PI / 180.0;
+                    let text_x = text_radius * text_rad.cos();
+                    let text_y = text_radius * text_rad.sin();
+                    
+                    view!{
                         <div 
-                            class="text-white font-bold text-lg drop-shadow-lg"
-                            style:rotate=move || format!("{}deg", x.angle)
+                            class="absolute text-white font-bold text-lg drop-shadow-lg pointer-events-none"
+                            style:left=move || format!("calc(50% + {}px)", text_x)
+                            style:top=move || format!("calc(50% + {}px)", text_y)
+                            style:transform=move || format!("translate(-50%, -50%) rotate({}deg)", text_angle + 90.0)
                         > 
                             {x.name} 
                         </div>
-                    </div>
-                  </div>
+                    }
                 }).collect_view()
             }}
         </div>
