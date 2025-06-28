@@ -54,7 +54,7 @@ pub fn NameList() -> impl IntoView {
                 </div>
                 <div class="p-2">
                     <button type="Submit" class=button_class>
-                        Submit
+                        Add name
                     </button>
                 </div>
             </form>

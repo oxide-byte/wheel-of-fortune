@@ -2,8 +2,8 @@
 target = "index.html"
 dist = "dist"
 
-#[package.metadata.leptos]
-#assets-dir = "public"
+[package.metadata.leptos]
+assets-dir = "public"
 
 [serve]
 port = 8080

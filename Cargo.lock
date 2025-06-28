@@ -2242,6 +2242,7 @@ dependencies = [
  "leptos-use",
  "reactive_stores",
  "thaw",
+ "web-sys",
 ]
 
 [[package]]
