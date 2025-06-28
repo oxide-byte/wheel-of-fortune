@@ -32,6 +32,14 @@ pub fn NameList() -> impl IntoView {
         element.set_value("");
     };
 
+    let delete_name = move |index: usize| {
+        let mut current_list = name_list.get();
+        if index < current_list.len() {
+            current_list.remove(index);
+            name_list.set(current_list);
+        }
+    };
+
     view! {
         <div class="z-10">
         <div>
@@ -56,7 +64,19 @@ pub fn NameList() -> impl IntoView {
             <ul class="ps-5 mt-2 space-y-1 list-disc list-inside">
             {move || {
                 name_list.get().into_iter()
-                .map(|x| view!{<li>{x}</li>})
+                .enumerate()
+                .map(|(index, x)| view!{
+                    <li class="flex items-center justify-between group">
+                        <span>{x}</span>
+                        <button
+                            class="ml-2 text-red-500"
+                            on:click=move |_| delete_name(index)
+                            title="Delete name"
+                        >
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </li>
+                })
                 .collect_view()
             }}
             </ul>

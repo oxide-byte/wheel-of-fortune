@@ -112,8 +112,8 @@ pub fn WheelOfFortune() -> impl IntoView {
                 parts.get().into_iter()
                 .map(|x| {
                     let slice_angle = 360.0 / parts.get().len() as f64;
-                    let text_angle = x.angle as f64 + slice_angle / 2.0; // Center of the slice
-                    let text_radius = 150.0; // Distance from center for text
+                    let text_angle = x.angle as f64 + slice_angle / 2.0; 
+                    let text_radius = 150.0; 
                     let text_rad = (text_angle - 90.0) * PI / 180.0;
                     let text_x = text_radius * text_rad.cos();
                     let text_y = text_radius * text_rad.sin();

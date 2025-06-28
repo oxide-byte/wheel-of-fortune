@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-blue-800: oklch(42.4% 0.199 265.638);
     --color-gray-50: oklch(98.5% 0.002 247.839);
@@ -172,6 +173,9 @@
   }
 }
 @layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
   .absolute {
     position: absolute;
   }
@@ -181,20 +185,14 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
-  .top-0 {
-    top: calc(var(--spacing) * 0);
-  }
-  .left-0 {
-    left: calc(var(--spacing) * 0);
-  }
   .z-10 {
     z-index: 10;
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
-  .-ml-48 {
-    margin-left: calc(var(--spacing) * -48);
+  .ml-2 {
+    margin-left: calc(var(--spacing) * 2);
   }
   .flex {
     display: flex;
@@ -202,17 +200,11 @@
   .table {
     display: table;
   }
-  .h-20 {
-    height: calc(var(--spacing) * 20);
-  }
   .h-105 {
     height: calc(var(--spacing) * 105);
   }
   .h-full {
     height: 100%;
-  }
-  .w-100 {
-    width: calc(var(--spacing) * 100);
   }
   .w-105 {
     width: calc(var(--spacing) * 105);
@@ -228,6 +220,12 @@
   }
   .flex-row {
     flex-direction: row;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
   }
   .space-y-1 {
     :where(& > :not(:last-child)) {
@@ -267,9 +265,6 @@
   .p-2\.5 {
     padding: calc(var(--spacing) * 2.5);
   }
-  .p-50 {
-    padding: calc(var(--spacing) * 50);
-  }
   .px-20 {
     padding-inline: calc(var(--spacing) * 20);
   }
@@ -278,9 +273,6 @@
   }
   .ps-5 {
     padding-inline-start: calc(var(--spacing) * 5);
-  }
-  .text-right {
-    text-align: right;
   }
   .text-4xl {
     font-size: var(--text-4xl);
@@ -300,6 +292,9 @@
   }
   .text-gray-900 {
     color: var(--color-gray-900);
+  }
+  .text-red-500 {
+    color: var(--color-red-500);
   }
   .text-white {
     color: var(--color-white);
