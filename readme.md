@@ -17,3 +17,8 @@ trunk build --release --public-url="/wheel-of-fortune/"
 ```
 
 test on: https://oxide-byte.github.io/wheel-of-fortune/
+
+## Samples
+
+![alt text](docs/public/p2.png "screenshot")
+![alt text](docs/public/p1.png "screenshot")
