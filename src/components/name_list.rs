@@ -8,7 +8,8 @@ use reactive_stores::Store;
 pub fn NameList() -> impl IntoView {
     let state = expect_context::<Store<GlobalState>>();
     let button_class = "bg-blue-700 hover:bg-blue-800 px-20 py-3 text-white rounded-lg";
-    let name_input_class = "bg-gray-50 border border-gray-900 text-gray-900 rounded-lg w-full p-2.5";
+    let name_input_class =
+        "bg-gray-50 border border-gray-900 text-gray-900 rounded-lg w-full p-2.5";
 
     let name_list = state.name_list();
 
@@ -18,9 +19,7 @@ pub fn NameList() -> impl IntoView {
     let on_submit = move |ev: SubmitEvent| {
         ev.prevent_default();
 
-        let element = input_element
-            .get()
-            .expect("<input> should be mounted");
+        let element = input_element.get().expect("<input> should be mounted");
 
         let value = element.value();
 

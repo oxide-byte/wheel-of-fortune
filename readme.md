@@ -6,17 +6,34 @@
 
 Currently just a small demonstration for applying with Leptos a rotating Text.
 
-Current implementation level 10% ;-)
+## Features
 
-Maybe one day it gets a little challenge ;-)
+* adding / deleting items
+* split the wheel in colors and parts
+* speed control by defining waiting time and step size in rotation
+* start button to start the wheel
+* reducing speed with a random factor
+* showing the current winning name during rotation
 
-Release Build for GitHub Page:
+## Build
+
+Release build for GitHub page:
 
 ```shell
 trunk build --release --public-url="/wheel-of-fortune/"
 ```
 
-test on: https://oxide-byte.github.io/wheel-of-fortune/
+and set the correct base reference 
+
+```
+<base href="/wheel-of-fortune/">
+```
+
+in the generated file.
+
+## Demo
+
+Test it on: https://oxide-byte.github.io/wheel-of-fortune/
 
 ## Samples
 

@@ -10,10 +10,12 @@ pub struct GlobalState {
 #[component]
 pub fn App() -> impl IntoView {
     provide_context(Store::new(GlobalState::default()));
-    mount_to_body(|| view! {
-        <div class="flex flex-row">
-        <NameList/>
-        <WheelOfFortune/>
-        </div>
+    mount_to_body(|| {
+        view! {
+            <div class="flex flex-row">
+            <NameList/>
+            <WheelOfFortune/>
+            </div>
+        }
     })
 }
