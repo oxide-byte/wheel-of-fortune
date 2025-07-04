@@ -157,13 +157,13 @@ pub fn WheelOfFortune() -> impl IntoView {
                 {move || {
                     parts.get().into_iter()
                     .map(|x| {
+                        let font_size_class = if parts.get().len() > 18 { "text-xs" } else { "text-lg" };
                         let slice_angle = 360.0 / parts.get().len() as f64;
                         let text_angle = x.angle as f64 + slice_angle / 2.0;
                         let text_radius = 150.0;
                         let text_rad = (text_angle - 90.0) * PI / 180.0;
                         let text_x = text_radius * text_rad.cos();
                         let text_y = text_radius * text_rad.sin();
-
                         view!{
                             <div
                                 class="absolute text-white font-bold text-lg drop-shadow-lg pointer-events-none"
@@ -171,7 +171,7 @@ pub fn WheelOfFortune() -> impl IntoView {
                                 style:top=move || format!("calc(50% + {text_y}px)")
                                 style:transform=move || format!("translate(-50%, -50%) rotate({}deg)", text_angle + 90.0)
                             >
-                                {x.name}
+                            <span class=font_size_class>{x.name}</span>
                             </div>
                         }
                     }).collect_view()
