@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-leptos = { version = "0.8.3", features = ["csr"] }
+leptos = { version = "0.8.5", features = ["csr"] }
 leptos-use = { version = "0.16.2", features = ["use_interval_fn", "use_raf_fn"] }
 thaw = {version = "0.5.0-beta"}
 reactive_stores = { version = "0.2.3" }
