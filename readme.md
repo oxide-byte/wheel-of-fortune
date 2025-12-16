@@ -35,6 +35,9 @@ in the generated file.
 
 Test it on: https://oxide-byte.github.io/wheel-of-fortune/
 
+Pass names via URL (comma-separated list only):
+https://oxide-byte.github.io/wheel-of-fortune/?names=Sushi,Pizza,Burger
+
 ## Samples
 
 ![alt text](docs/public/p2.png "screenshot")
